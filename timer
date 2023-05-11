@@ -1,0 +1,42 @@
+package timer;
+
+public class timer {
+
+	public static int saat=0;
+	public static int dakika=0;
+	public static int saniye=0;
+	public static boolean start;
+	static void start() {
+		for(int i=60;i>=saniye;saniye++) {
+			try {
+				Thread.sleep(1000);
+			}catch(Exception err) {}
+			System.out.println(saat+":"+dakika+":"+saniye);
+			
+					if(saniye==59) {
+						saniye=0;
+						dakika++;
+					}
+					else if(dakika==60) {
+						saniye=0;
+						dakika=0;
+						saat++;
+					}
+					if(dakika==60) {
+						dakika=0;
+						saniye=0;
+						saat++;
+					}
+					if(saat==24) {
+						start=false;
+						break;
+					}
+				}
+				
+			
+
+}
+	public static void main(String[] args) {
+		start();
+	}
+}
